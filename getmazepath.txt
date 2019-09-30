@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+class GFG {
+        static  ArrayList<String> getmazepath(int cr,int cc,int ec,int er)
+        {   
+            if(cr==er&&ec==cc)
+            {
+                ArrayList<String> br=new ArrayList<String>();
+                br.add("");
+                return br;
+            }
+            if(cr>er||cc>ec)
+            {
+                ArrayList<String> br=new ArrayList<String>();
+                return br;
+            }
+            ArrayList<String> mr=new ArrayList<String>();
+            ArrayList<String> rrh=getmazepath(cr,cc+1,ec,er);
+            for(String rrhs:rrh)
+            {
+                mr.add("H"+rrhs);
+            }
+            ArrayList<String> rrv=getmazepath(cr+1,cc,ec,er);
+            for(String rrvs:rrv)
+            {
+                mr.add("V"+rrvs);
+            }
+       
+            return mr;
+                 
+        }
+	public static void main (String[] args) {
+		System.out.println(getmazepath(0,0,2,2));
+	
+	}
+}
